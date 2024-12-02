@@ -1,7 +1,7 @@
 {
-  "name": "@finsweet/developer-starter",
-  "version": "0.0.0",
-  "description": "Developer starter template for Finsweet projects.",
+  "name": "@studiorelief/mon-logiciel-btp",
+  "version": "1.0.0",
+  "description": "Mon Logiciel BTP project by Studio ",
   "homepage": "https://github.com/finsweet/developer-starter#readme",
   "license": "ISC",
   "keywords": [],
