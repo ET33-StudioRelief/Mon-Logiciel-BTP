@@ -1,6 +1,7 @@
 import './index.css';
 
 import {
+  addHoverBlogCard,
   animateCatchPhrase,
   animateFaq,
   animateSections,
@@ -30,9 +31,8 @@ window.Webflow.push(() => {
     animateSectionsSlideLeft(['#software-solution1', '#software-solution3']);
     animateCatchPhrase();
     animateSectionTestiTools();
+    addHoverBlogCard();
   }
-
-  // Vérifier si l'URL contient 'architecte', 'constructeur' ou 'maitre-oeuvre'
-  /*if (/architecte|constructeur|maitre-oeuvre/.test(window.location.href)) {
+  /*if (window.location.href.includes('blog-posts')) {
   }*/
 });

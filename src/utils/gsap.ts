@@ -211,3 +211,27 @@ export const animateCatchPhrase = (): void => {
     });
   });
 };
+
+export const addHoverBlogCard = (): void => {
+  const items = document.querySelectorAll('.software_blog_item');
+
+  items.forEach((item) => {
+    // Ajouter l'écouteur pour l'événement mouseenter
+    item.addEventListener('mouseenter', () => {
+      gsap.to(item, {
+        y: -15, // Déplace vers le haut de 30px
+        duration: 0.3, // Durée de l'animation
+        ease: 'power1.out', // Animation fluide
+      });
+    });
+
+    // Ajouter l'écouteur pour l'événement mouseleave
+    item.addEventListener('mouseleave', () => {
+      gsap.to(item, {
+        y: 0, // Retourne à la position initiale
+        duration: 0.3, // Durée de l'animation
+        ease: 'power1.out', // Animation fluide
+      });
+    });
+  });
+};
