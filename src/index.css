@@ -1,0 +1,7 @@
+#checkbox-3 {
+  background-color: transparent;
+  border: 1px solid #ed6c26; /* Correct */
+  color: white;
+  width: 0.75rem;
+  height: 0.75rem;
+}

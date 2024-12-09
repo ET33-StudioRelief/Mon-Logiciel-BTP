@@ -8,7 +8,10 @@ import {
   animateSectionsSlideLeft,
   animateSectionsSlideRight,
   animateSectionTestiTools,
+  buttonLight,
   moveUpSections,
+  navbarButtonLight,
+  secondaryButtonHover,
   stepsLine,
   updateFooterYear,
 } from '$utils/gsap';
@@ -16,6 +19,9 @@ import {
 window.Webflow ||= [];
 window.Webflow.push(() => {
   updateFooterYear();
+  buttonLight();
+  navbarButtonLight();
+  secondaryButtonHover();
   stepsLine();
 
   if (window.location.href.includes('/')) {
@@ -33,6 +39,7 @@ window.Webflow.push(() => {
     animateSectionTestiTools();
     addHoverBlogCard();
   }
-  /*if (window.location.href.includes('blog-posts')) {
-  }*/
+  if (window.location.href.includes('blog')) {
+    addHoverBlogCard();
+  }
 });

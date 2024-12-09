@@ -14,6 +14,139 @@ export function updateFooterYear(): void {
   }
 }
 
+/* BUTTON */
+// Animation on button
+export const buttonLight = (): void => {
+  const navbarButtons = document.querySelectorAll('.button-content');
+
+  if (!navbarButtons.length) return;
+
+  // Ajouter les styles CSS nécessaires
+  const style = document.createElement('style');
+  style.textContent = `
+    .button-content {
+      position: relative;
+      overflow: hidden;
+      transform-origin: center;
+    }
+    .light-beam {
+      position: absolute;
+      width: 30px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: skewX(-20deg);
+      top: 0;
+      left: -100%;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Appliquer l'effet à chaque bouton
+  navbarButtons.forEach((button) => {
+    const lightBeam = document.createElement('div');
+    lightBeam.className = 'light-beam';
+    button.appendChild(lightBeam);
+
+    // Animation au survol
+    button.addEventListener('mouseenter', () => {
+      // Animation du faisceau lumineux
+      gsap.fromTo(
+        lightBeam,
+        { left: '-10%' },
+        {
+          left: '110%',
+          duration: 0.8,
+          ease: 'power1.inOut',
+        }
+      );
+
+      // Animation du bouton
+      gsap.to(button, {
+        scale: 1.02,
+        /*top: -4,*/
+        duration: 0.3,
+        ease: 'power3.out',
+      });
+    });
+
+    // Réinitialisation à la sortie
+    button.addEventListener('mouseleave', () => {
+      // Réinitialisation du faisceau
+      gsap.to(lightBeam, {
+        left: '-10%',
+        duration: 0.3,
+        ease: 'none',
+      });
+
+      // Réinitialisation du bouton
+      gsap.to(button, {
+        scale: 1,
+        /*top: 0, */
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    });
+  });
+};
+
+//Animation on navbar button
+export const navbarButtonLight = (): void => {
+  const navbarButtons = document.querySelectorAll('.navbar_button-content');
+
+  if (!navbarButtons.length) return;
+
+  // Ajouter les styles CSS nécessaires
+  const style = document.createElement('style');
+  style.textContent = `
+    .navbar_button-content {
+      position: relative;
+      overflow: hidden;
+      transform-origin: center;
+    }
+    .light-beam {
+      position: absolute;
+      width: 30px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: skewX(-20deg);
+      top: 0;
+      left: -100%;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Appliquer l'effet à chaque bouton
+  navbarButtons.forEach((button) => {
+    const lightBeam = document.createElement('div');
+    lightBeam.className = 'light-beam';
+    button.appendChild(lightBeam);
+
+    // Animation au survol
+    button.addEventListener('mouseenter', () => {
+      // Animation du faisceau lumineux
+      gsap.fromTo(
+        lightBeam,
+        { left: '-10%' },
+        {
+          left: '200%',
+          duration: 0.4,
+          ease: 'power1.inOut',
+        }
+      );
+    });
+
+    // Réinitialisation à la sortie
+    button.addEventListener('mouseleave', () => {
+      // Réinitialisation du faisceau
+      gsap.to(lightBeam, {
+        left: '-10%',
+        duration: 0.4,
+        ease: 'none',
+      });
+    });
+  });
+};
+
 // SECTION - Animation pour faire apparaître une section en move up
 export const moveUpSections = (selectors: string[]): void => {
   selectors.forEach((selector) => {
@@ -37,13 +170,7 @@ export const moveUpSections = (selectors: string[]): void => {
 // SECTION APPARITION GLOBALE-
 export const animateSections = (): void => {
   // Sélectionner toutes les sections à animer
-  const elements = [
-    '#catch-phrase1',
-    '#catch-phrase2',
-    '.section_home_pricing',
-    '.home_faq_component .margin-bottom.margin-xxlarge',
-    '.home_faq_component .max-width-large.align-center',
-  ];
+  const elements = ['#catch-phrase1', '#catch-phrase2', '.section_home_pricing', '.home_faq_list'];
 
   // Appliquer l'animation à chaque section
   elements.forEach((selector) => {
@@ -94,7 +221,7 @@ export const animateFaq = (): void => {
   });
 };
 /* HOME PAGE */
-//STEPS - Apparition des étapes au scroll
+//STEPS - step apparition
 export const stepsLine = (): void => {
   // Sélectionner tous les éléments à animer
   const elements = ['#step1', '#step2', '#step3', '#step4'];
@@ -120,7 +247,7 @@ export const stepsLine = (): void => {
 };
 
 /* SECTIONS */
-// Animation pour faire apparaître une section avec un slide depuis la droite
+// slide right animation
 export const animateSectionsSlideRight = (selectors: string[]): void => {
   selectors.forEach((currentSelector) => {
     // Vérifier si l'élément existe
@@ -142,7 +269,7 @@ export const animateSectionsSlideRight = (selectors: string[]): void => {
 };
 
 /* SECTIONS */
-// Animation pour faire apparaître une section avec un slide depuis la gauche
+// slide left animation
 export const animateSectionsSlideLeft = (selectors: string[]): void => {
   selectors.forEach((currentSelector) => {
     // Vérifier si l'élément existe
@@ -163,8 +290,8 @@ export const animateSectionsSlideLeft = (selectors: string[]): void => {
   });
 };
 
-/* OUTILS */
-
+/* TOOLS */
+//Section apparition
 export const animateSectionTestiTools = (): void => {
   // Sélectionner toutes les sections à animer
   const elements = ['.section_software_testimonial', '.section_features'];
@@ -187,7 +314,7 @@ export const animateSectionTestiTools = (): void => {
     });
   });
 };
-
+//Section apparition
 export const animateCatchPhrase = (): void => {
   // Sélectionner toutes les sections à animer
   const elements = ['#software-heading1', '#software-heading2'];
@@ -211,26 +338,73 @@ export const animateCatchPhrase = (): void => {
     });
   });
 };
-
+//Hover on cards blog post
 export const addHoverBlogCard = (): void => {
-  const items = document.querySelectorAll('.software_blog_item');
+  const items = document.querySelectorAll('.hub_all-articles_item');
 
   items.forEach((item) => {
-    // Ajouter l'écouteur pour l'événement mouseenter
+    const overlay = item.querySelector('.hub_all-articles_overlay');
+
     item.addEventListener('mouseenter', () => {
+      // Animation de la carte
       gsap.to(item, {
-        y: -15, // Déplace vers le haut de 30px
-        duration: 0.3, // Durée de l'animation
-        ease: 'power1.out', // Animation fluide
+        y: -15,
+        duration: 0.3,
+        ease: 'power1.out',
+      });
+
+      // Animation de l'overlay
+      if (overlay) {
+        gsap.to(overlay, {
+          opacity: 0.33,
+          duration: 0.3,
+          ease: 'power1.out',
+        });
+      }
+    });
+
+    item.addEventListener('mouseleave', () => {
+      // Animation de la carte
+      gsap.to(item, {
+        y: 0,
+        duration: 0.3,
+        ease: 'power1.out',
+      });
+
+      // Animation de l'overlay
+      if (overlay) {
+        gsap.to(overlay, {
+          opacity: 0,
+          duration: 0.3,
+          ease: 'power1.out',
+        });
+      }
+    });
+  });
+};
+
+// Secondary button hover effect
+export const secondaryButtonHover = (): void => {
+  const secondaryButtons = document.querySelectorAll('.button.is-secondary');
+
+  if (!secondaryButtons.length) return;
+
+  secondaryButtons.forEach((button) => {
+    button.addEventListener('mouseenter', () => {
+      gsap.to(button, {
+        backgroundColor: '#000000',
+        color: '#ffffff',
+        duration: 0.6,
+        ease: 'power1.out',
       });
     });
 
-    // Ajouter l'écouteur pour l'événement mouseleave
-    item.addEventListener('mouseleave', () => {
-      gsap.to(item, {
-        y: 0, // Retourne à la position initiale
-        duration: 0.3, // Durée de l'animation
-        ease: 'power1.out', // Animation fluide
+    button.addEventListener('mouseleave', () => {
+      gsap.to(button, {
+        backgroundColor: 'transparent',
+        color: '#000000',
+        duration: 0,
+        ease: 'power1.out',
       });
     });
   });
