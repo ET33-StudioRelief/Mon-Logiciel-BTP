@@ -3,7 +3,6 @@ import './index.css';
 import {
   addHoverBlogCard,
   animateCatchPhrase,
-  animateFaq,
   animateSections,
   animateSectionsSlideLeft,
   animateSectionsSlideRight,
@@ -28,7 +27,6 @@ window.Webflow.push(() => {
     moveUpSections(['.section_home_features', '.home_faq_bottom-cta', '.section_software-video']);
     animateSectionsSlideRight(['.section_home_temoignage', '.section_home_testimonial']);
     animateSections();
-    animateFaq();
   }
 
   if (window.location.href.includes('outils')) {

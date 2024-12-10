@@ -193,34 +193,6 @@ export const animateSections = (): void => {
 };
 
 /* HOME PAGE */
-// SECTION FAQ
-export const animateFaq = (): void => {
-  // Sélectionner toutes les sections à animer
-  const elements = [
-    '.home_faq_component .margin-bottom.margin-xxlarge',
-    '.home_faq_component .max-width-large.align-center',
-  ];
-
-  // Appliquer l'animation à chaque section
-  elements.forEach((selector) => {
-    // Vérifier si l'élément existe avant d'appliquer l'animation
-    const element = document.querySelector(selector);
-    if (!element) return; // Passe au suivant si l'élément n'existe pas
-
-    gsap.from(selector, {
-      y: 50,
-      opacity: 0,
-      duration: 2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: selector,
-        start: 'top',
-        toggleActions: 'play none play none',
-      },
-    });
-  });
-};
-/* HOME PAGE */
 //STEPS - step apparition
 export const stepsLine = (): void => {
   // Sélectionner tous les éléments à animer
