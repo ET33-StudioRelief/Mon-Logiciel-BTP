@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["../src/index.css"],
-  "sourcesContent": ["#checkbox-3 {\n  background-color: transparent;\n  border: 1px solid #ed6c26; /* Correct */\n  color: white;\n  width: 0.75rem;\n  height: 0.75rem;\n}\n"],
-  "mappings": ";AAAA,CAAC;AACC,oBAAkB;AAClB,UAAQ,IAAI,MAAM;AAClB,SAAO;AACP,SAAO;AACP,UAAQ;AACV;",
+  "sources": [],
+  "sourcesContent": [],
+  "mappings": "",
   "names": []
 }
