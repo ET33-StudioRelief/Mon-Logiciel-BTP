@@ -354,30 +354,3 @@ export const addHoverBlogCard = (): void => {
     });
   });
 };
-
-// Secondary button hover effect
-export const secondaryButtonHover = (): void => {
-  const secondaryButtons = document.querySelectorAll('.button.is-secondary');
-
-  if (!secondaryButtons.length) return;
-
-  secondaryButtons.forEach((button) => {
-    button.addEventListener('mouseenter', () => {
-      gsap.to(button, {
-        backgroundColor: '#000000',
-        color: '#ffffff',
-        duration: 0.6,
-        ease: 'power1.out',
-      });
-    });
-
-    button.addEventListener('mouseleave', () => {
-      gsap.to(button, {
-        backgroundColor: 'transparent',
-        color: '#000000',
-        duration: 0,
-        ease: 'power1.out',
-      });
-    });
-  });
-};

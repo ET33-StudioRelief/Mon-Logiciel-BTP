@@ -10,7 +10,6 @@ import {
   buttonLight,
   moveUpSections,
   navbarButtonLight,
-  secondaryButtonHover,
   stepsLine,
   updateFooterYear,
 } from '$utils/gsap';
@@ -20,7 +19,6 @@ window.Webflow.push(() => {
   updateFooterYear();
   buttonLight();
   navbarButtonLight();
-  secondaryButtonHover();
   stepsLine();
 
   if (window.location.href.includes('/')) {
