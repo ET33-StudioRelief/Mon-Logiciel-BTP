@@ -170,7 +170,7 @@ export const moveUpSections = (selectors: string[]): void => {
 // SECTION APPARITION GLOBALE-
 export const animateSections = (): void => {
   // Sélectionner toutes les sections à animer
-  const elements = ['#catch-phrase1', '#catch-phrase2', '.section_home_pricing', '.home_faq_list'];
+  const elements = ['#catch-phrase1', '#catch-phrase2', '.section_home_pricing'];
 
   // Appliquer l'animation à chaque section
   elements.forEach((selector) => {
