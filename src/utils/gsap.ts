@@ -17,14 +17,14 @@ export function updateFooterYear(): void {
 /* BUTTON */
 // Animation on button
 export const buttonLight = (): void => {
-  const navbarButtons = document.querySelectorAll('.button-content');
+  const navbarButtons = document.querySelectorAll('.button_content');
 
   if (!navbarButtons.length) return;
 
   // Ajouter les styles CSS nécessaires
   const style = document.createElement('style');
   style.textContent = `
-    .button-content {
+    .button_content {
       position: relative;
       overflow: hidden;
       transform-origin: center;
@@ -91,14 +91,14 @@ export const buttonLight = (): void => {
 
 //Animation on navbar button
 export const navbarButtonLight = (): void => {
-  const navbarButtons = document.querySelectorAll('.navbar_button-content');
+  const navbarButtons = document.querySelectorAll('.navbar_button_content');
 
   if (!navbarButtons.length) return;
 
   // Ajouter les styles CSS nécessaires
   const style = document.createElement('style');
   style.textContent = `
-    .navbar_button-content {
+    .navbar_button_content {
       position: relative;
       overflow: hidden;
       transform-origin: center;
@@ -133,6 +133,14 @@ export const navbarButtonLight = (): void => {
           ease: 'power1.inOut',
         }
       );
+
+      // Animation du bouton
+      gsap.to(button, {
+        scale: 1.02,
+        /*top: -4,*/
+        duration: 0.3,
+        ease: 'power3.out',
+      });
     });
 
     // Réinitialisation à la sortie
@@ -142,6 +150,13 @@ export const navbarButtonLight = (): void => {
         left: '-10%',
         duration: 0.4,
         ease: 'none',
+      });
+      // Réinitialisation du bouton
+      gsap.to(button, {
+        scale: 1,
+        /*top: 0, */
+        duration: 0.3,
+        ease: 'power2.out',
       });
     });
   });
